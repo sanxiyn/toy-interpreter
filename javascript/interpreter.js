@@ -121,7 +121,7 @@ function interpretBlockStatement(context, ret, block) {
 
 function interpretFunctionDeclaration(context, ret, declaration) {
   context[declaration.id.name] = function(context, ret, args) {
-    let child = Object.assign({}, context);
+    let child = {...context};
     for (let i = 0; i < declaration.params.length; i++) {
       child[declaration.params[i].name] = args[i];
     }
